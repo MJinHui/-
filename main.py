@@ -41,8 +41,8 @@ def get_tgwords():
   return word
 
 def get_djtwords():
-  djtword = requests.get("http://api.lkblog.net/ws/api.php").json()
-  return djtword['data']
+  djtword = requests.get("http://api.lkblog.net/ws/api.php")
+  return djtword.json()['data']
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
