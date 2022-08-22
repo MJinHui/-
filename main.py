@@ -40,9 +40,6 @@ def get_tgwords():
   word = requests.get("https://api.ixiaowai.cn/tgrj/index.php")
   return word
 
-def get_djtwords():
-  djtword = requests.get("http://api.lkblog.net/ws/api.php")
-  return djtword.json()['data']
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
@@ -52,6 +49,6 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
-data = {"weather":{"value":wea},"temperature":{"value":temperature},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()},"tgwords":{"value":get_tgwords(), "color":get_random_color()},"djtwords":{"value":get_djtwords(), "color":get_random_color()}}
+data = {"weather":{"value":wea},"temperature":{"value":temperature},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()},"tgwords":{"value":get_tgwords(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
