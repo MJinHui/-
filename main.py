@@ -42,7 +42,7 @@ def get_djtwords():
 
 def get_tgwords():
   word = requests.get("https://www.maitanbang.com/api/tgriji/index?key=bE9002cXVnEGfbehM7It2tqk8s")
-  return word.json()['data']['content']
+  return word.json()['data'][0]['content']
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
