@@ -37,8 +37,8 @@ def get_words():
   return words.json()['data']['text']
 
 def get_tgwords():
-  word = requests.get("https://api.ixiaowai.cn/tgrj/index.php")
-  return word.json()
+  word = requests.get("https://apis.juhe.cn/fapig/soup/query?key=5954c7bb9a3e2e6f5db015435287c82c")
+  return word.json()['result']['text']
 
 
 def get_random_color():
