@@ -37,11 +37,11 @@ def get_words():
   return words.json()['data']['text']
 
 def get_tgwords():
-  word = requests.get("https://api.ixiaowai.cn/tgrj/index.php").json()
+  word = requests.get("https://api.ixiaowai.cn/tgrj/index.php")
   return word
 
 def get_djtwords():
-  djtword = requests.get("http://api.lkblog.net/ws/api.php").json()
+  djtword = requests.get("http://api.lkblog.net/ws/api.php")
   return djtword['data']
 
 def get_random_color():
