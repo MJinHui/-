@@ -36,10 +36,13 @@ def get_words():
     return get_words()
   return words.json()['data']['text']
 
-def get_tgwords():
+def get_djtwords():
   word = requests.get("https://apis.juhe.cn/fapig/soup/query?key=5954c7bb9a3e2e6f5db015435287c82c")
   return word.json()['result']['text']
 
+def get_tgwords():
+  word = requests.get("https://www.maitanbang.com/api/tgriji/index?key=bE9002cXVnEGfbehM7It2tqk8s")
+  return word.json()['data']['content']
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
@@ -49,6 +52,6 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
-data = {"weather":{"value":wea},"temperature":{"value":temperature},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()},"tgwords":{"value":get_tgwords(), "color":get_random_color()}}
+data = {"weather":{"value":wea},"temperature":{"value":temperature},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()},"tgwords":{"value":get_tgwords(), "color":get_random_color()},"djtwords":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
