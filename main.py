@@ -38,7 +38,7 @@ def get_words():
 
 def get_tgwords():
   word = requests.get("https://api.ixiaowai.cn/tgrj/index.php")
-  return word
+  return word.json()
 
 
 def get_random_color():
